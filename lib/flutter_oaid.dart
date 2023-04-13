@@ -1,7 +1,7 @@
 import 'flutter_oaid_platform_interface.dart';
 
 class FlutterOaid {
-  Future<String?> getPlatformVersion() {
+  Future<String?> getOaid() {
     return FlutterOaidPlatform.instance.getOaid();
   }
 
