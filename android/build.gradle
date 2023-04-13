@@ -3,6 +3,9 @@ version '1.0'
 
 buildscript {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
         google()
         mavenCentral()
     }
@@ -14,6 +17,10 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
         google()
         mavenCentral()
     }
@@ -30,6 +37,10 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
     }
+}
+
+dependencies {
+    implementation "com.github.gzu-liyujiang:Android_CN_OAID:4.2.4"
 }

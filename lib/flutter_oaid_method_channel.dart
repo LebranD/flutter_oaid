@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -10,8 +12,15 @@ class MethodChannelFlutterOaid extends FlutterOaidPlatform {
   final methodChannel = const MethodChannel('flutter_oaid');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<String?> getOaid() async {
+    assert(Platform.isAndroid);
+    final oaid = await methodChannel.invokeMethod<String>('getOaid');
+    return oaid;
+  }
+
+  @override
+  Future<void> register() async {
+    assert(Platform.isAndroid);
+    await methodChannel.invokeMethod('register');
   }
 }

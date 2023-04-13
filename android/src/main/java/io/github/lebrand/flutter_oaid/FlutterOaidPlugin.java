@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 
 /** FlutterOaidPlugin */
-public class FlutterOaidPlugin implements FlutterPlugin, MethodCallHandler {
+public class FlutterOaidPlugin implements FlutterPlugin {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -19,16 +19,8 @@ public class FlutterOaidPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
     channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "flutter_oaid");
-    channel.setMethodCallHandler(this);
-  }
-
-  @Override
-  public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-    if (call.method.equals("getPlatformVersion")) {
-      result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } else {
-      result.notImplemented();
-    }
+    final MethodCallHandlerImpl handler = new MethodCallHandlerImpl(flutterPluginBinding.getApplicationContext());
+    channel.setMethodCallHandler(handler);
   }
 
   @Override

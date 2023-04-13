@@ -23,7 +23,7 @@ abstract class FlutterOaidPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
-  }
+  Future<String?> getOaid();
+
+  Future<void> register();
 }
