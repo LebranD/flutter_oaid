@@ -1,0 +1,2 @@
+/Users/dengxianshun/pluginspace/flutter_oaid/example/android/app/.cxx/Debug/361d1e3w/x86_64/CMakeFiles/edit_cache.dir
+/Users/dengxianshun/pluginspace/flutter_oaid/example/android/app/.cxx/Debug/361d1e3w/x86_64/CMakeFiles/rebuild_cache.dir

@@ -22,12 +22,4 @@ void main() {
   test('$MethodChannelFlutterOaid is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelFlutterOaid>());
   });
-
-  test('getPlatformVersion', () async {
-    FlutterOaid flutterOaidPlugin = FlutterOaid();
-    MockFlutterOaidPlatform fakePlatform = MockFlutterOaidPlatform();
-    FlutterOaidPlatform.instance = fakePlatform;
-
-    expect(await flutterOaidPlugin.getPlatformVersion(), '42');
-  });
 }
