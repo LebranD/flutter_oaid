@@ -16,12 +16,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final String _platformVersion = 'Unknown';
+  String _platformVersion = 'Unknown';
   final _flutterOaidPlugin = FlutterOaid();
 
   @override
   void initState() {
     super.initState();
+
+    _flutterOaidPlugin.getOaid().then((value) {
+      _platformVersion = value ?? 'Unknown';
+      setState(() {});
+    });
   }
 
   @override
